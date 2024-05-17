@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module1</title>
+  </head>
+  <body>
+    <div class="main-header">
+      <nav class="main-menu">
+        <header>
+          <h3>Great Cliff's logo</h3>
+          <ul>
+            <li>Home</li>
+            <li>Cliffs</li>
+            <li>Events</li>
+            <li>Contact</li>
+          </ul>
+        </header>
+      </nav>
+    </div>
+    <main>
+      <h1>Contacting Us</h1>
+      <p>
+        If you need more information about the Cliffs, Hours of Operations,
+        Facilities or questions about this site, please contact us bu using one
+        of the following:
+      </p>
+
+      <h2>Phone:</h2>
+      <p>(800)GCLIFFS</p>
+      <h2>Email:</h2>
+      <p>info@greatcliffs.com</p>
+
+      <form action="/contact" method="post">
+        <fieldset>
+          <legend>Contact Form</legend>
+          <label>Enter your full name</label><br>
+          
+          <input type="text" name="name"></br><br>
+          <label>Enter your email</label><br>
+          <input type="email" name="email"></br><br>
+          <label>Enter your phone</label><br>
+          <input type="phone" name="phone"></br><br>
+          <br><label>How Should i contact You:</label><br>
+          <input type="radio" name="Email" value="Email"/>Email
+          <input type="radio" name="Phone" value="Phone"/>Phone <br/><br>
+          <label for="">Which Cliff are you inquiring?</label>
+          <br>
+         
+          <select name="cliff" id="">
+            <option value="">West Cliff</option>
+            <option value="">North Cliff</option>
+            <option value="">East Cliff</option>
+            <option value="">South Cliff</option>
+          </select>
+          <br>
+          <br>How did you hear about us: <br>
+          <textarea cols="30" rows="5"></textarea><br>
+          <input type="submit" value="sign-up">
+        </fieldset>
+      
+      </form>
+    </main>
+    <footer>
+      <!-- first Div -->
+      <div id="nondisclaimer" class="copy">
+        &copy; Copyright 2024 :: GreatCliffs.com
+      </div>
+
+      <!-- second Div -->
+      <div id="disclaimer" class="social">
+        <h3>Facebook Image</h3>
+        <h3>Instagram Image</h3>
+        <h3>Twitter Image</h3>
+
+        <p>
+          This website is designed and created solely for educational purposes
+          only at Westcliff University. All contents are not intended for any
+          commercial gain or use.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
