@@ -317,3 +317,45 @@ legend {
   padding-right: 30px;
   font-weight: bold;
 }
+.cliff {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.text,
+.row > div {
+  flex: 1;
+  padding: 10px;
+}
+
+.text {
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+#timeofday {
+  text-align: center;
+  padding: 30px;
+
+  background-image: linear-gradient(
+    0deg,
+    rgb(197, 227, 236) 0%,
+    rgba(255, 255, 255) 35%,
+    rgb(163, 163, 104) 100%
+  );
+}
+
+#clock {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(to right, #c0b5f1, #eb0a7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
