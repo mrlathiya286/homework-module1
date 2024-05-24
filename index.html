@@ -27,9 +27,9 @@
         </nav>
       </div>
     </header>
-    <div id="timeofday">
-      <div id="clock"></div>
-    </div>
+    <section id="timeofday">
+      <span id="clock"></span>
+    </section>
 
     <main>
       <h1>Introducing California's Greatest Cliffs</h1>
@@ -116,36 +116,77 @@
       document.getElementById("partners").innerHTML = imageList;
 
       function currentTime() {
-        // Declare variables
+        // Fetch current local time
         var d = new Date();
-        var hr = d.getHours();
-        var min = d.getMinutes();
-        var sec = d.getSeconds();
-        var ampm;
-        //Add 0 to Single Digits for seconds
-        if (sec < 10) {
-          sec = "0" + sec;
-        }
-        //Add 0 to single digits for minutes
-        if (min < 10) {
-          min = "0" + min;
-        }
-        // Determine the Am Pm string
-        if (hr == 12) {
-          ampm = "PM";
-        } else if (hr > 12) {
-          hr -= 12;
-          ampm = "PM";
+        var localHr = d.getHours();
+        var localMin = d.getMinutes();
+        var localSec = d.getSeconds();
+        var localAmpm;
+
+        // Add leading zeros
+        if (localSec < 10) localSec = "0" + localSec;
+        if (localMin < 10) localMin = "0" + localMin;
+
+        // Determine AM/PM for local time
+        if (localHr == 0) {
+          localHr = 12;
+          localAmpm = "AM";
+        } else if (localHr == 12) {
+          localAmpm = "PM";
+        } else if (localHr > 12) {
+          localHr -= 12;
+          localAmpm = "PM";
         } else {
-          ampm = "AM";
+          localAmpm = "AM";
         }
 
-        var time = hr + ":" + min + ":" + sec + " " + ampm;
+        var localTime =
+          localHr + ":" + localMin + ":" + localSec + " " + localAmpm;
 
-        document.getElementById("clock").innerHTML = time;
+        // Display local time
+        document.getElementById("clock").innerHTML = localTime;
 
-        setInterval(currentTime, 1000);
+        // Fetch GMT time
+        var utchr = d.getUTCHours(); // Get current Greenwich Mean Time (GMT)
+
+        // Calculate time difference
+        var timeDiff = d.getHours() - utchr;
+
+        // Adjust time difference if negative
+        var adjTimeDiff = timeDiff;
+        if (adjTimeDiff < 0) {
+          adjTimeDiff += 24;
+        }
+
+        // Determine time zone
+        var timezone;
+        switch (adjTimeDiff) {
+          case 16:
+          case 17:
+          case 18:
+            timezone = "PT"; // Pacific Time (UTC-8)
+            break;
+          case 15:
+            timezone = "MT"; // Mountain Time (UTC-7)
+            break;
+          case 14:
+            timezone = "CT"; // Central Time (UTC-6)
+            break;
+          case 13:
+            timezone = "ET"; // Eastern Time (UTC-5)
+            break;
+          default:
+            timezone = "Unknown Time Zone";
+        }
+
+        // Display time zone
+        document.getElementById("timezone").innerHTML =
+          "Time Zone: " + timezone;
+
+        // Refresh the time every second
+        setTimeout(currentTime, 1000);
       }
+
       currentTime();
     </script>
     <script
