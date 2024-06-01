@@ -228,6 +228,15 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* form .button input {
+  width: 0.2em;
+  height: 2.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  /* background-color: #4977d1;   
+  color: #ffffff;
+  border: none;
+} */
 fieldset {
   border: none;
 }

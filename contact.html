@@ -80,6 +80,15 @@
             <textarea></textarea>
           </div>
 
+          <div class="randomcode">
+            <input
+              type="text"
+              name="randomcode"
+              placeholder="Enter Characters"
+            />
+            <p id="codes"></p>
+          </div>
+
           <div class="button">
             <input type="submit" value="Inquire" />
           </div>
@@ -126,29 +135,9 @@
         </p>
       </div>
     </footer>
-    <script>
-      var photos = [];
-      var fileNames = [];
-      var imageList = [];
-      var image;
-      var openList = "<li class='partner' id='photos'>";
-      var closeList = "</li>";
-      var imageNames = [
-        "partner-bustour",
-        "partner-cabinrental",
-        "partner-campingadv",
-        "partner-collegetours",
-        "partner-rentalbike",
-        "partner-tourgroup",
-      ];
-      for (var i = 0; i < 6; i++) {
-        fileNames.push(imageNames[i]);
-        photos.push("<img src='images/partners/" + fileNames[i] + ".png'>");
-        image = openList + photos[i] + closeList;
-        imageList.push(image);
-      }
-      document.getElementById("partners").innerHTML = imageList;
-    </script>
+    <script src="js/randomcode.js"></script>
+    <script src="js/digiclock.js"></script>
+    <script src="js/site_script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
