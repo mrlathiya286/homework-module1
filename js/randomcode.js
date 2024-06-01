@@ -1,5 +1,6 @@
 function generateCode() {
   var code = " ";
+
   var str = "ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$";
 
   for (i = 1; i <= 8; i++) {
@@ -10,9 +11,3 @@ function generateCode() {
 }
 
 document.getElementById("codes").innerHTML = generateCode();
-
-function disableButton() {
-  document.getElementById("submit").disabled = true;
-}
-
-disableButton();
