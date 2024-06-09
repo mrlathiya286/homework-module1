@@ -369,3 +369,15 @@ legend {
   -webkit-text-fill-color: transparent;
 }
 /* button not disabled */
+
+/* Style for selected cells */
+/* Style for selected cells */
+.selected {
+  background-color: green;
+  color: white; /* Optional: Change text color for better visibility */
+}
+
+/* Style for all cells to have pointer cursor */
+td {
+  cursor: pointer;
+}
