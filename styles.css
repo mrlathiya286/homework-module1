@@ -556,3 +556,31 @@ legend {
 .button [type="submit"]:hover {
   background-color: #7cb82f;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 400px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.activity {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.activity h4 {
+  margin-top: 0;
+}

@@ -1,37 +1,48 @@
 $(document).ready(function () {
-  // Add click event listener to all table cells
-  $("table td").on("click", function () {
-    // Check if the clicked cell is "Not Available"
-    if ($(this).text().trim() !== "Not Available") {
-      // Toggle the "selected" class
+  var selectedActivities = [];
+
+  function updateModalContent() {
+    var modalContent = $("#selectedActivitiesContent");
+    modalContent.html("");
+
+    if (selectedActivities.length > 0) {
+      var list = $("<ul></ul>");
+      selectedActivities.forEach(function (activity) {
+        var listItem = $("<li></li>").text(activity);
+        list.append(listItem);
+      });
+      modalContent.append(list);
+    } else {
+      modalContent.text("No activities selected.");
+    }
+  }
+
+  $("#activitiesTable tbody td").on("click", function () {
+    if ($(this).text() !== "Not Available") {
+      var activityName = $(this).text();
+      var index = selectedActivities.indexOf(activityName);
+
       $(this).toggleClass("selected");
-    }
-  });
-});
 
-$(document).ready(function () {
-  $("td").click(function () {
-    var content = $(this).text();
-    var columnIndex = $(this).index(); // Get the column index of the clicked cell
-    var cliffSiteName = $("table th").eq(columnIndex).text(); // Get the cliff site name based on the column index
-
-    if (content != "Not Available") {
-      $(this).toggleClass("tdhighlight");
-      if ($(this).hasClass("tdhighlight")) {
-        $("#displaySelected").css("visibility", "visible");
-        $("#displaySelected").css("margin-top", "2em");
-        if (!$("#result p:contains(" + content + ")").length) {
-          $("#result").append(
-            "<p>" + content + " at  " + cliffSiteName + "</p>"
-          );
-        }
+      if (index === -1) {
+        selectedActivities.push(activityName);
       } else {
-        $("#result p:contains(" + content + ")").remove();
-        if ($("#result").has("p").length == false) {
-          $("#displaySelected").css("visibility", "hidden");
-          $("#displaySelected").css("margin-top", "0");
-        }
+        selectedActivities.splice(index, 1);
       }
+
+      updateModalContent();
+      $("#selectedActivitiesModal").modal("show");
     }
   });
+
+  // Disable selection for "Not available" cells and heading/title cells
+  $("#activitiesTable thead th, #activitiesTable tbody td:first-child").on(
+    "click",
+    function (e) {
+      e.preventDefault();
+    }
+  );
+
+  // Change cursor to hand on selectable cells
+  $("#activitiesTable tbody td").not(":first-child").css("cursor", "pointer");
 });
